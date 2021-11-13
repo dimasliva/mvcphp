@@ -28,7 +28,7 @@ class Route
         $model_path = "app/models/" . $model_file;
 
         if (file_exists($model_path)) {
-            include 'app/models/' . $model_path;
+            include  $model_path;
         } else {
             Route::Error404();
         }
