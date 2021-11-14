@@ -10,7 +10,7 @@ class Controller
         $this->view = new View();
     }
 
-    function index_action()
+    function actionIndex()
     {
     }
 }

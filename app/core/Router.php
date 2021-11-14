@@ -21,16 +21,37 @@ class Router
         $uri = $this->getURI();
 
         foreach ($this->routes as $uriPattern => $path) {
-
             if (preg_match("~$uriPattern~", $uri)) {
-                $segments = explode("/", $path);
 
-                $controllerName = array_shift($segments) . "Controler";
-                $controllerName = ucfirst($controllerName);
 
+                $intertalRoute = preg_replace("~$uriPattern~", $path, $uri);
+
+                // Controller&Action name
+
+                $segments = explode("/", $intertalRoute);
+
+
+                $controllerName = ucfirst(array_shift($segments)) . "Controller";
                 $actionName = "action" . ucfirst(array_shift($segments));
-                echo "<br>Class: $controllerName";
-                echo "<br>Method: $actionName";
+
+                $parameters = $segments;
+                $controllerFile = ROOT . "/app/controllers/" . $controllerName . ".php";
+
+                if (file_exists($controllerFile)) {
+                    include_once $controllerFile;
+                }
+                $controllerObject = new $controllerName;
+
+
+                $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
+
+                echo "<br>" . $actionName;
+
+                echo "<pre>";
+                print_r($segments);
+                if ($result != null) {
+                    break;
+                }
             }
         }
     }
