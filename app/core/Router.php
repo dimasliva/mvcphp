@@ -42,13 +42,8 @@ class Router
                 }
                 $controllerObject = new $controllerName;
 
-
                 $result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 
-                echo "<br>" . $actionName;
-
-                echo "<pre>";
-                print_r($segments);
                 if ($result != null) {
                     break;
                 }

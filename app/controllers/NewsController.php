@@ -4,14 +4,24 @@ class NewsController
 {
     public function actionIndex()
     {
-        echo "News list";
+        $newsList = array();
+        $newsList = News::getNewsList();
+
+        require_once ROOT . "/app/views/news/index.php";
+
         return true;
     }
 
-    public function actionView($view, $id)
+    public function actionView($id)
     {
-        echo "</br>Param one: " . $view;
-        echo "</br>Param two:" . $id;
-        return true;
+        if ($id) {
+            $newsList = News::getNewsById($id);
+
+            echo "<pre>";
+            print_r($newsList);
+            echo "</pre>";
+            echo "$id</br>";
+            return true;
+        }
     }
 }
