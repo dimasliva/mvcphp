@@ -1,24 +1,21 @@
 <?php
+require_once ROOT . '/app/models/News.php';
 
 class NewsController
 {
     public function actionIndex()
     {
-        $string = '04-01-2002';
-        $pattern = '/([0-9]{2})-([0-9]{2})-([0-9]{4})/';
-        $replace = 'Год: $3 Mouth: $2 Day: $1';
-        $match = preg_replace($pattern, $replace, $string);
-        echo 'Список новостей ' . $match;
+        $newsList = array();
+        $newsList = News::getNews();
+        require_once ROOT . '/app/views/news/index.php';
         return true;
     }
 
-    public function actionView($category, $id)
+    public function actionView($id)
     {
-        echo 'Просмотр 1 новости ';
-        echo '<br>';
-        print_r($category);
-        echo '<br>';
-        print_r($id);
+        $newsItem = News::getNewsItemById($id);
+        require_once ROOT . '/app/views/news/view.php';
+
         return true;
     }
 }

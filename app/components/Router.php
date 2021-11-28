@@ -22,7 +22,7 @@ class Router
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~^$uriPattern$~", $uri)) {
 
-                echo $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
                 $segments = explode("/", $internalRoute);
 
@@ -31,10 +31,6 @@ class Router
 
                 $actionName = 'action' . ucfirst(array_shift($segments));
                 $parameters = $segments;
-
-                echo '<pre>';
-                print_r($parameters);
-                echo '</pre>';
 
                 $controllerFile = ROOT . '/app/controllers/' . $controllerName . '.php';
                 if (file_exists($controllerFile)) {
