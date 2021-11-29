@@ -7,14 +7,14 @@ class NewsController
     {
         $newsList = array();
         $newsList = News::getNews();
-        require_once ROOT . '/app/views/news/index.php';
+        require_once ROOT . '/public/views/news/index.php';
         return true;
     }
 
     public function actionView($id)
     {
         $newsItem = News::getNewsItemById($id);
-        require_once ROOT . '/app/views/news/view.php';
+        require_once ROOT . '/public/views/news/view.php';
 
         return true;
     }
