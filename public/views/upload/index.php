@@ -9,43 +9,84 @@
     <title>Document</title>
 </head>
 
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if ($_FILES['file']['size'] > 0) {
-
-        require_once './app/models/Upload.php';
-        $upload = new Upload;
-        $upload::getUpload();
-    } else {
-        echo 'Select image';
-    }
-}
-?>
-
 <body>
 
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <div class="file-upload">
-        <form action="./upload" enctype="multipart/form-data" method="POST" target="votar">
+        <form enctype="multipart/form-data" method="POST" target="votar">
 
             <button type="submit" name="submit" class="file-upload-btn">Add image</button>
 
-            <div class="image-upload-wrap">
+            <div class="image-upload-wrap" onclick="loadImg()">
                 <input type='file' name="file" onchange="readURL(this);" accept="image/*" class="file-upload-input" />
                 <div class="drag-text">
-                    <h3>Drag and drop a file or select add Image</h3>
+                    <h3>Drag and drop a file or select add</h3>
+                    <img class="file-upload-image" src="#" alt="your image" id="blah" />
                 </div>
+                <p id="parap"></p>
+
             </div>
         </form>
-        <div class="file-upload-content">
-            <img class="file-upload-image" src="#" alt="your image" />
+        <!-- 
+            <div class="file-upload-content">
+            <img class="file-upload-image" src="#" alt="your image" id="blah" />
             <div class="image-title-wrap">
                 <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
             </div>
         </div>
+     -->
+        `
     </div>
+    <?php
+    foreach ($images as $image) :
+    ?>
+        <div>
+            <img src="/public//images/<?= $image['name'] . $image['type']; ?>">
+        </div>
+    <?php
+    endforeach;
+    ?>
+    <!-- JS -->
+    <script>
+        var img = document.getElementById('blah');
+        img.style.display = "none";
+
+        function loadImg() {
+            var p = document.getElementById('parap');
+            p.innerHTML += img.style.display + ' ';
+
+            if (input.files && input.files[0]) {
+                img.style.display = "block";
+                p.innerHTML += img.style.display + ' ';
+            }
 
 
+        }
+        p.innerHTML = img.style.display;
+
+        if (img.style.display = "none") {
+
+        }
+        img.style.display = "none";
+
+
+        function readURL(input) {
+            var img = document.getElementById('blah');
+            document.getElementById('dasdas').innerHTML = image;
+            img.style.display = "block";
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </body>
 
 </html>

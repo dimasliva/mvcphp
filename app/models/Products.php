@@ -26,7 +26,6 @@ class Products
 
             $db = Db::getConnection();
 
-            $sql = "SELECT * from news WHERE id=" . $id;
             $result = $db->query("SELECT * from news WHERE id=$id");
 
             $result->setFetchMode(PDO::FETCH_ASSOC);
