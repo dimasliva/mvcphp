@@ -54,7 +54,7 @@
                                             <a href="portfolio-item.html">
                                                 <img src="<?= './public/images/' . $image['file_name'] ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" style="object-fit: cover; height:200px;" alt="p1" /></a>
                                         </div>
-                                        <h2 class="entry-title"><a href="portfolio-item.html" rel="bookmark">Sunset Beach</a></h2>
+                                        <h2 class="entry-title"><a href="portfolio-item.html" rel="bookmark"><?= $image['title'] ?></a></h2>
                                         <a class='portfoliotype' href='portfolio-category.html'>summer</a>
                                         <a class='portfoliotype' href='portfolio-category.html'>woman</a>
                                         <a class='portfoliotype' href='portfolio-category.html'>yellow</a>
