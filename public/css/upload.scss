@@ -1,5 +1,3 @@
-@import "compass/css3";
-
 /* ===================== FILE INPUT ===================== */
 .file-area {
     width: 100%;
@@ -25,9 +23,6 @@
         text-align: center;
         transition: background 0.3s ease-in-out;
 
-        .success {
-            display: none;
-        }
     }
 
     &:hover .file-dummy {
@@ -94,6 +89,7 @@ body {
     /* IE10+ */
 
     background: linear-gradient(to bottom, #053777 0%, #00659b 100%);
+
     /* W3C */
 
 }
@@ -182,7 +178,5 @@ button {
     text-align: center;
     padding: 6px;
     margin: auto;
-    border-radius: 3px;
-    border: 1px solid rgb(180, 180, 180);
     background-color: #d90000;
 }

@@ -5,7 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/upload.scss">
-    <title>Document</title>
+    <title>Upload image</title>
+    <style>
+        .alert-success {
+            display: block;
+            width: 400px;
+            text-align: center;
+            padding: 6px;
+            margin: auto;
+            background-color: #44ba16;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,12 +31,11 @@
         </div>
 
         <div class="form-group file-area">
-            <label for="images">Images <span>Your images should be at least 400x300 wide</span></label>
-            <input type="file" name="file" id="file" multiple="multiple" />
             <div class="file-dummy">
-                <div class="success">Great, your files are selected. Keep on.</div>
-                <div class="default">Please select some files</div>
-            </div>
+                <div class="success" style="display:none;margin:0px 0px 10px auto; color:chartreuse;">Great, your files are selected. Keep on.</div>
+                <div class="default" style="margin:0px 0px 10px auto;">Please select some files</div>
+            </div> <input type="file" name="file" id="file" multiple="multiple" />
+
         </div>
 
         <div class="form-group">
@@ -40,7 +50,20 @@
 
     <script>
         const form = document.querySelector('form');
-        fileInput = form.querySelector('#title');
+        fileTitle = form.querySelector('#title');
+        fileFile = form.querySelector('#file');
+        success = form.querySelector('.success');
+        selectFiles = form.querySelector('.default');
+
+        fileFile.onchange = ({
+            target
+        }) => {
+            let file = target.files[0];
+            if (file) {
+                selectFiles.style.display = 'none';
+                success.style.display = 'block';
+            }
+        }
     </script>
 </body>
 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/public/css/style_upload.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all' />
     <link rel='stylesheet' href='css/easy-responsive-shortcodes.css' type='text/css' media='all' />
-    <title>Document</title>
+    <title>Images</title>
 </head>
 
 <body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
@@ -55,9 +55,7 @@
                                                 <img src="<?= './public/images/' . $image['file_name'] ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" style="object-fit: cover; height:200px;" alt="p1" /></a>
                                         </div>
                                         <h2 class="entry-title"><a href="portfolio-item.html" rel="bookmark"><?= $image['title'] ?></a></h2>
-                                        <a class='portfoliotype' href='portfolio-category.html'>summer</a>
-                                        <a class='portfoliotype' href='portfolio-category.html'>woman</a>
-                                        <a class='portfoliotype' href='portfolio-category.html'>yellow</a>
+                                        <a class='portfoliotype' href='portfolio-category.html'><?= $image['uploaded_on'] ?></a>
                                     </header>
                                 </article>
                             <?php endforeach; ?>
@@ -84,7 +82,7 @@
         <footer id="colophon" class="site-footer">
             <div class="container">
                 <div class="site-info">
-                    <h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Moschino</h1>
+                    <h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Portfolio</h1>
                     <a href="/">&copy; Portfolio - not a commercial project</a>
                 </div>
             </div>

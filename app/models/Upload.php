@@ -5,32 +5,37 @@ class Upload
     public static function getUpload()
     {
         $db = Db::getConnection();
-
         if (isset($_POST['submit'])) {
-            // Status
-            $statusMsg = '';
+
             // Title
             $title = $_POST['title'];
             $title = htmlspecialchars($title);
-            if (empty($_POST['title'])) {
+            if (empty($title)) {
                 $statusMsg = "<div class='alert'>Fill the title field</div>";
             } else {
                 // File
                 $targetDir = ROOT . '/public/images/';
+
                 $fileName = basename($_FILES['file']['name']);
+                $fileName = uniqid() . $_FILES['file']['name'];
+
                 $targetFilePath = $targetDir . $fileName;
 
                 $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+                //  Date
+                $date = date('Y-m-d H:i:s');
+
                 if (isset($_POST['submit']) && !empty($_FILES['file']['name'])) {
                     $allowTypes = array('png', 'jpg', 'jpeg', 'gif', 'pdf');
                     if (in_array($fileType, $allowTypes)) {
                         if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFilePath)) {
-                            $insert = $db->query("INSERT INTO upload(`file_name`,`title`)
-                        VALUES('$fileName', '$title')");
+
+                            $insert = $db->query("INSERT INTO upload(`file_name`, `uploaded_on`,`title`)
+                            VALUES('$fileName', '$date', '$title')");
                             $insert->setFetchMode(PDO::FETCH_ASSOC);
 
                             if ($insert) {
-                                $statusMsg = "The file " . $fileName . " has been uploaded successfully.</div>";
+                                $statusMsg = "<div class='alert-success'>The file " . $fileName . " has been uploaded successfully.</div>";
                             } else {
                                 $statusMsg = "<div class='alert'>File upload failed, please try again.</div>";
                             }
