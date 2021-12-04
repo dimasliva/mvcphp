@@ -6,7 +6,6 @@ class UploadController
     {
         $images = array();
         $images = Upload::getImages();
-
         require_once(ROOT . '/public/views/upload/index.php');
 
         return true;
@@ -18,6 +17,16 @@ class UploadController
 
         require_once(ROOT . '/public/views/upload/create.php');
 
+        return true;
+    }
+
+    public function actionPagination()
+    {
+        $images = array();
+
+        $images = Upload::getImages();
+        Upload::pagination();
+        require_once(ROOT . '/public/views/upload/index.php');
         return true;
     }
 }

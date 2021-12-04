@@ -73,4 +73,59 @@ class Upload
         }
         return $images;
     }
+
+    public static function pagination()
+    {
+        $db = Db::getConnection();
+
+        $pageUri = explode('/', $_SERVER['REQUEST_URI']);
+        $page = end($pageUri);
+        $pageCount = floor(count($images) / $page);
+        echo $page;
+
+
+
+        // try {
+        //     $total = $db->query('SELECT COUNT(*) from upload')->fetchColumn();
+        //     $limit = 1;
+        //     $pages = ceil($total / $limit);
+        //     $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+        //         'options' => array(
+        //             'default' => 1,
+        //             'min_range' => 1,
+        //         ),
+        //     )));
+        //     $offset = ($page - 1) * $limit;
+        //     $start = $offset + 1;
+        //     $end = min(($offset + $limit), $total);
+
+        //     $prevlink = ($page > 1)
+        //         ? '<a href="/upload/1" title="First page">&laquo;</a> <a href="/upload/'
+        //         . ($page - 1) . '" title="Previous page">&lsaquo;</a>'
+        //         : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
+
+        //     $nextlink = ($page < $pages)
+        //         ? '<a href="/upload/' . ($page + 1)
+        //         . '" title="Next page">&rsaquo;</a> <a href="/upload/'
+        //         . $pages . '" title="Last page">&raquo;</a>'
+        //         : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
+
+        //     echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
+        //     $stmt = $db->prepare('SELECT * FROM upload ORDER BY id DESC LIMIT :limit OFFSET :offset');
+
+        //     $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+        //     $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+        //     $stmt->execute();
+
+        //     if ($stmt->rowCount() > 0) {
+        //         $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        //         $iterator = new IteratorIterator($stmt);
+        //         foreach ($iterator as $row) {
+        //             echo '<p>', $row['title'], '</p>';
+        //         };
+        //     }
+        // } catch (Exception $e) {
+        //     echo '<p>', $e->getMessage(), '</p>';
+        // }
+    }
 }

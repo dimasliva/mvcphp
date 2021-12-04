@@ -47,12 +47,11 @@
                     <main id="main" class="site-main">
                         <div class="grid portfoliogrid">
                             <?php foreach ($images as $image) : ?>
-
                                 <article class="hentry">
                                     <header class="entry-header">
                                         <div class="entry-thumbnail">
                                             <a href="portfolio-item.html">
-                                                <img src="<?= './public/images/' . $image['file_name'] ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" style="object-fit: cover; height:200px;" alt="p1" /></a>
+                                                <img src="<?= '/public/images/' . $image['file_name'] ?>" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" style="object-fit: cover; height:200px;" alt="p1" /></a>
                                         </div>
                                         <h2 class="entry-title"><a href="portfolio-item.html" rel="bookmark"><?= $image['title'] ?></a></h2>
                                         <a class='portfoliotype' href='portfolio-category.html'><?= $image['uploaded_on'] ?></a>
@@ -90,10 +89,10 @@
         <a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
     </div>
 
-    <script src='./public/js/jquery.js'></script>
-    <script src='./public/js/plugins.js'></script>
-    <script src='./public/js/scripts.js'></script>
-    <script src='./public/js/masonry.pkgd.min.js'></script>
+    <script src='/public/js/jquery.js'></script>
+    <script src='/public/js/plugins.js'></script>
+    <script src='/public/js/scripts.js'></script>
+    <script src='/public/js/masonry.pkgd.min.js'></script>
 
 </body>
 

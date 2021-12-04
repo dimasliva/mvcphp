@@ -9,5 +9,6 @@ return array(
     "products/([0-9]+)" => "product/view/$1",
     // Upload
     "upload" => "upload/index",
+    "upload/([0-9]+)" => "upload/pagination",
     "upload/create" => "upload/create",
 );
