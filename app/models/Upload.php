@@ -60,6 +60,7 @@ class Upload
 
         $result = $db->query('SELECT * from upload ORDER BY id DESC LIMIT 6');
         $result->execute();
+        $result->fetchColumn(PDO::FETCH_ASSOC);
 
         $images = array();
         $i = 0;
@@ -78,12 +79,48 @@ class Upload
     {
         $db = Db::getConnection();
 
-        $pageUri = explode('/', $_SERVER['REQUEST_URI']);
-        $page = end($pageUri);
-        $pageCount = floor(count($images) / $page);
-        echo $page;
+        $uri = explode('/', $_SERVER['REQUEST_URI']);
+        $currentPage = end($uri);
 
+        $result = $db->query('SELECT * from upload');
+        $result->execute();
+        $result->fetchColumn(PDO::FETCH_ASSOC);
 
+        $images = array();
+        $i = 0;
+
+        while ($row = $result->fetch()) {
+            $images[$i]['id'] = $row['id'];
+            $images[$i]['file_name'] = $row['file_name'];
+            $images[$i]['uploaded_on'] = $row['uploaded_on'];
+            $images[$i]['title'] = $row['title'];
+            $i++;
+        }
+        print_r($images);
+        $num_images = count($images);
+        echo '<br>';
+        echo 'num_images: ' . $num_images;
+        echo '<br>';
+        $results_per_page = 1;
+
+        echo $countPage = floor($num_images / $results_per_page);
+
+        $this_page_first_result = ($currentPage - 1) * $results_per_page;
+
+        $sql = 'SELECT * FROM upload LIMIT ' . $this_page_first_result . ',' . $results_per_page;
+        $result = $db->query($sql);
+
+        $pagesArr = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $pagesArr[$i]['id'] = $row['id'];
+        }
+        for ($p = 0; $p < $countPage; $p++) {
+            $pages = array_push($pagesArr, $p);
+            echo '<br>';
+            print_r($pages);
+        }
+        return array($pagesArr, $images);
 
         // try {
         //     $total = $db->query('SELECT COUNT(*) from upload')->fetchColumn();

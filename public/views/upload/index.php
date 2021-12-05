@@ -64,8 +64,12 @@
                         <!-- .grid -->
 
                         <nav class="pagination">
-                            <span class="page-numbers current">1</span>
-                            <a class="page-numbers" href="#">2</a>
+                            <?php foreach ($pagesArr as $page) : ?>
+
+
+                                <!-- <span class="page-numbers current">1</span> -->
+                                <a class="page-numbers" href="<?= '/upload/' . $page + 1 ?>"><?= $page + 1 ?></a>
+                            <?php endforeach; ?>
                             <a class="next page-numbers" href="#">Next »</a>
                         </nav>
                         <br />

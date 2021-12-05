@@ -22,10 +22,9 @@ class UploadController
 
     public function actionPagination()
     {
-        $images = array();
-
-        $images = Upload::getImages();
-        Upload::pagination();
+        $pagination = Upload::pagination();
+        $pagesArr = array_shift($pagination);
+        $images = array_shift($pagination);
         require_once(ROOT . '/public/views/upload/index.php');
         return true;
     }
