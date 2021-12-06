@@ -44,7 +44,7 @@
                     <ul>
                         <li><a href="#">home</a></li>
                         <li><a href="/products">products</a></li>
-                        <li><a href="/upload">upload</a></li>
+                        <li><a href="/upload/1">upload</a></li>
                         <li><a href="#">featured</a></li>
                         <li><a href="#">broadcast</a></li>
                         <li><a href="#">category</a></li>

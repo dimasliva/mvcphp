@@ -46,7 +46,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
 
-    <a href="/upload" class="back-to-article" target="_blank">Back to Upload</a>
+    <a href="/upload/1" class="back-to-article" target="_blank">Back to Upload</a>
 
     <script>
         const form = document.querySelector('form');

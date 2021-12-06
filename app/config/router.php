@@ -1,5 +1,7 @@
 <?php
 return array(
+    // Home
+    "" => "home/index",
     // News
     "news" => "news/index",
     "news/([0-9]+)" => "news/view/$1",
@@ -8,7 +10,6 @@ return array(
     "products" => "product/list",
     "products/([0-9]+)" => "product/view/$1",
     // Upload
-    "upload" => "upload/index",
-    "upload/([0-9]+)" => "upload/pagination",
+    "upload/([0-9]+)" => "upload/index",
     "upload/create" => "upload/create",
 );

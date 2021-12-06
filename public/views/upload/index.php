@@ -65,12 +65,15 @@
 
                         <nav class="pagination">
                             <?php foreach ($pagesArr as $page) : ?>
-
-
-                                <!-- <span class="page-numbers current">1</span> -->
+                                <?php
+                                $uri = explode('/', $_SERVER['REQUEST_URI']);
+                                $currentPage = end($uri);
+                                ?>
                                 <a class="page-numbers" href="<?= '/upload/' . $page + 1 ?>"><?= $page + 1 ?></a>
+
+
                             <?php endforeach; ?>
-                            <a class="next page-numbers" href="#">Next »</a>
+                            <a class="next page-numbers" href="<?= '/upload/' . $page + 1 ?>">Next »</a>
                         </nav>
                         <br />
 

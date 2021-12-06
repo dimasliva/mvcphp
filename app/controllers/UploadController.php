@@ -4,10 +4,10 @@ class UploadController
 {
     public function actionIndex()
     {
-        $images = array();
-        $images = Upload::getImages();
+        $pagination = Upload::getImages();
+        $pagesArr = array_shift($pagination);
+        $images = array_shift($pagination);
         require_once(ROOT . '/public/views/upload/index.php');
-
         return true;
     }
 
@@ -17,15 +17,6 @@ class UploadController
 
         require_once(ROOT . '/public/views/upload/create.php');
 
-        return true;
-    }
-
-    public function actionPagination()
-    {
-        $pagination = Upload::pagination();
-        $pagesArr = array_shift($pagination);
-        $images = array_shift($pagination);
-        require_once(ROOT . '/public/views/upload/index.php');
         return true;
     }
 }

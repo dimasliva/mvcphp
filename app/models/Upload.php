@@ -53,42 +53,36 @@ class Upload
         }
     }
 
-
     public static function getImages()
-    {
-        $db = Db::getConnection();
-
-        $result = $db->query('SELECT * from upload ORDER BY id DESC LIMIT 6');
-        $result->execute();
-        $result->fetchColumn(PDO::FETCH_ASSOC);
-
-        $images = array();
-        $i = 0;
-
-        while ($row = $result->fetch()) {
-            $images[$i]['id'] = $row['id'];
-            $images[$i]['file_name'] = $row['file_name'];
-            $images[$i]['uploaded_on'] = $row['uploaded_on'];
-            $images[$i]['title'] = $row['title'];
-            $i++;
-        }
-        return $images;
-    }
-
-    public static function pagination()
     {
         $db = Db::getConnection();
 
         $uri = explode('/', $_SERVER['REQUEST_URI']);
         $currentPage = end($uri);
+        if (isset($currentPage)) {
+            $currentPage = preg_replace('#[^0-9]+#', '', $currentPage);
+            echo $currentPage;
+        }
+        if ($currentPage == 0) {
+            header('Location: /upload/1');
+        }
 
-        $result = $db->query('SELECT * from upload');
-        $result->execute();
-        $result->fetchColumn(PDO::FETCH_ASSOC);
+        $imageResult = $db->query('SELECT * from upload');
+        $imageResult->execute();
+
+        $imageResult->fetchColumn(PDO::FETCH_ASSOC);
+
+        $number_of_results = $imageResult->rowCount();
+        $results_per_page = 6;
+
+        $countPage = ceil($number_of_results / $results_per_page);
+        $this_page_first_result = ($currentPage - 1) * $results_per_page;
+
+        $sql = 'SELECT * FROM upload LIMIT ' . $this_page_first_result . ',' . $results_per_page;
+        $result = $db->query($sql);
 
         $images = array();
         $i = 0;
-
         while ($row = $result->fetch()) {
             $images[$i]['id'] = $row['id'];
             $images[$i]['file_name'] = $row['file_name'];
@@ -96,73 +90,12 @@ class Upload
             $images[$i]['title'] = $row['title'];
             $i++;
         }
-        print_r($images);
-        $num_images = count($images);
-        echo '<br>';
-        echo 'num_images: ' . $num_images;
-        echo '<br>';
-        $results_per_page = 1;
 
-        echo $countPage = floor($num_images / $results_per_page);
-
-        $this_page_first_result = ($currentPage - 1) * $results_per_page;
-
-        $sql = 'SELECT * FROM upload LIMIT ' . $this_page_first_result . ',' . $results_per_page;
-        $result = $db->query($sql);
-
-        $pagesArr = array();
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $pagesArr[$i]['id'] = $row['id'];
-        }
+        $pages = array();
         for ($p = 0; $p < $countPage; $p++) {
-            $pages = array_push($pagesArr, $p);
-            echo '<br>';
-            print_r($pages);
+            $pages[$p] = $p;
         }
-        return array($pagesArr, $images);
 
-        // try {
-        //     $total = $db->query('SELECT COUNT(*) from upload')->fetchColumn();
-        //     $limit = 1;
-        //     $pages = ceil($total / $limit);
-        //     $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
-        //         'options' => array(
-        //             'default' => 1,
-        //             'min_range' => 1,
-        //         ),
-        //     )));
-        //     $offset = ($page - 1) * $limit;
-        //     $start = $offset + 1;
-        //     $end = min(($offset + $limit), $total);
-
-        //     $prevlink = ($page > 1)
-        //         ? '<a href="/upload/1" title="First page">&laquo;</a> <a href="/upload/'
-        //         . ($page - 1) . '" title="Previous page">&lsaquo;</a>'
-        //         : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
-
-        //     $nextlink = ($page < $pages)
-        //         ? '<a href="/upload/' . ($page + 1)
-        //         . '" title="Next page">&rsaquo;</a> <a href="/upload/'
-        //         . $pages . '" title="Last page">&raquo;</a>'
-        //         : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
-
-        //     echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
-        //     $stmt = $db->prepare('SELECT * FROM upload ORDER BY id DESC LIMIT :limit OFFSET :offset');
-
-        //     $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-        //     $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-        //     $stmt->execute();
-
-        //     if ($stmt->rowCount() > 0) {
-        //         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        //         $iterator = new IteratorIterator($stmt);
-        //         foreach ($iterator as $row) {
-        //             echo '<p>', $row['title'], '</p>';
-        //         };
-        //     }
-        // } catch (Exception $e) {
-        //     echo '<p>', $e->getMessage(), '</p>';
-        // }
+        return array($pages, $images);
     }
 }
