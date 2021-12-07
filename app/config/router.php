@@ -12,4 +12,5 @@ return array(
     // Upload
     "upload/([0-9]+)" => "upload/index",
     "upload/create" => "upload/create",
+    "upload/([a-zA-Z]+)" => "upload/error",
 );

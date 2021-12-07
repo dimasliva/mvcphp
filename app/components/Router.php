@@ -44,18 +44,6 @@ class Router
                     break;
                 }
             }
-            // if (!preg_match("~^$uriPattern$~", $uri)) {
-            //     $uri = $_SERVER['REQUEST_URI'];
-            //     $uriArr = explode('/', $uri);
-            //     array_shift($uriArr);
-            //     $uriOne = array_shift($uriArr);
-            //     if ($uriOne == 'upload') {
-            //         $uriTwo = array_shift($uriArr);
-            //         $matches = array();
-            //         print_r($uriTwo);
-            //         echo '<br>';
-            //     }
-            // }
         }
     }
 }

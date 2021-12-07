@@ -5,8 +5,6 @@ class UploadController
     public function actionIndex()
     {
         $pagination = Upload::getImages();
-        $pagesArr = array_shift($pagination);
-        $images = array_shift($pagination);
         require_once(ROOT . '/public/views/upload/index.php');
         return true;
     }
@@ -18,5 +16,10 @@ class UploadController
         require_once(ROOT . '/public/views/upload/create.php');
 
         return true;
+    }
+
+    public function actionError()
+    {
+        header('Location:/upload/1');
     }
 }
