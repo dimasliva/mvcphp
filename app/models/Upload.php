@@ -53,7 +53,7 @@ class Upload
         }
     }
 
-    public static function getImages()
+    public static function getPagination()
     {
         $db = Db::getConnection();
 
@@ -65,7 +65,6 @@ class Upload
         $pageRows = 6;
 
         $last = ceil($rows / $pageRows);
-
         if ($last < 1) {
             $last = 1;
         }
@@ -88,50 +87,57 @@ class Upload
         }
         $limit = 'LIMIT ' . ($pagenum - 1) * $pageRows . ',' . $pageRows;
         $sql = 'SELECT * FROM upload ORDER BY id DESC ' . $limit . ';';
-        $query = $db->query($sql);
-        $result = $query->execute();
+        $result = $db->query($sql);
+        $result->execute();
 
-        $textline1 = "Testimonials (<b>$rows</b>)";
-        $textline2 = "Page <b>$pagenum</b> of <b>$last</b>";
-        echo $textline2;
-        print_r($result);
-        // $uri = explode('/', $_SERVER['REQUEST_URI']);
-        // $currentPage = end($uri);
-        // if (isset($currentPage)) {
-        //     $currentPage = preg_replace('#[^0-9]+#', '', $currentPage);
-        // }
-        // if ($currentPage == 0) {
-        //     header('Location: /upload/1');
-        // }
+        $images = array();
+        $i = 0;
+        while ($row = $result->fetch()) {
+            $images[$i]['id'] = $row['id'];
+            $images[$i]['file_name'] = $row['file_name'];
+            $images[$i]['uploaded_on'] = $row['uploaded_on'];
+            $images[$i]['title'] = $row['title'];
+            $i++;
+        }
 
+
+        $paginumCtrls = '';
+        if ($last != 1) {
+            $previous = $pagenum - 1;
+            if ($previous == 0) {
+                $paginumCtrls .= null;
+            } else {
+
+                $paginumCtrls .= '<a class="page-numbers" href="/upload/' . $previous
+                    . '">Previous</a> ';
+            }
+
+            for ($i = $pagenum - 4; $i < $pagenum; $i++) {
+                if ($i > 0) {
+                    $paginumCtrls .= '<a href="/upload/' . $i . '">' . $i
+                        . '</a>';
+                }
+            }
+        }
+        $paginumCtrls .= '<span class="page-numbers current">' . $pagenum  . '</span>';
+
+        for ($i = $pagenum + 1; $i <= $last; $i++) {
+            $paginumCtrls .= '<a class="page-numbers" href="/upload/' . $i . '">' . $i . '</a>';
+            if ($i >= $pagenum) {
+                break;
+            }
+        }
+
+        if ($pagenum != $last) {
+            $next = $pagenum + 1;
+            $paginumCtrls .= '<a class="page-numbers" href="/upload/' . $next . '">Next</a> ';
+        }
+        return array($paginumCtrls, $images);
         // $imageResult = $db->query('SELECT * from upload');
         // $imageResult->execute();
 
         // $imageResult->fetchColumn(PDO::FETCH_ASSOC);
 
-        // $number_of_results = $imageResult->rowCount();
-        // $results_per_page = 6;
-
-        // $countPage = ceil($number_of_results / $results_per_page);
-        // $this_page_first_result = ($currentPage - 1) * $results_per_page;
-
-        // $sql = 'SELECT * FROM upload LIMIT ' . $this_page_first_result . ',' . $results_per_page;
-        // $result = $db->query($sql);
-
-        // $images = array();
-        // $i = 0;
-        // while ($row = $result->fetch()) {
-        //     $images[$i]['id'] = $row['id'];
-        //     $images[$i]['file_name'] = $row['file_name'];
-        //     $images[$i]['uploaded_on'] = $row['uploaded_on'];
-        //     $images[$i]['title'] = $row['title'];
-        //     $i++;
-        // }
-
-        // $pages = array();
-        // for ($p = 0; $p < $countPage; $p++) {
-        //     $pages[$p] = $p;
-        // }
 
         // return array($pages, $images, $currentPage);
     }

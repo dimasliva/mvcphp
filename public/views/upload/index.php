@@ -59,26 +59,15 @@
                                 </article>
                             <?php endforeach; ?>
 
-
                         </div>
                         <!-- .grid -->
 
                         <nav class="pagination">
-                            <?php foreach ($pagesArr as $page) : ?>
-
-                                <a class="page-numbers" href="<?= '/upload/' . $page + 1 ?>"><?= $page + 1 ?></a>
 
 
-                            <?php endforeach; ?>
+
                             <!-- CurrentPage -->
-                            <?php if ($currentPage) :
-                            ?>
-                                <?php $numCurrentPage = '<span class="page-numbers current">' . $currentPage . '</span>' ?>
-                                <?= $numCurrentPage ?>
-                            <?php endif; ?>
-                            <!-- Next -->
-                            <a class="next page-numbers" href="<?= '/upload/' . $page + 1 ?>">Next »</a>
-
+                            <?= $pagination ?>
                         </nav>
                         <br />
 

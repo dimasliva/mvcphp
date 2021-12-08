@@ -4,7 +4,9 @@ class UploadController
 {
     public function actionIndex()
     {
-        $pagination = Upload::getImages();
+        $paginationArr = Upload::getPagination();
+        $pagination = array_shift($paginationArr);
+        $images = array_shift($paginationArr);
         require_once(ROOT . '/public/views/upload/index.php');
         return true;
     }
