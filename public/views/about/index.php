@@ -16,7 +16,7 @@
     <link href="./assets/favicon.ico" rel="icon">
 
     <title>Title page</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="/public/css/main.d8e0d294.css" rel="stylesheet">
 </head>
 
@@ -33,17 +33,17 @@
                     <a class="fa-icon fa-icon-2x" href="https://vk.com/id554796471" title="" target="_blank">
                         <i class="fa fa-vk"></i>
                     </a>
-                    <a class="fa-icon fa-icon-2x" href="https://twitter.com/" title="">
-                        <i class="fa fa-twitter"></i>
+                    <a class="fa-icon fa-icon-2x" href="https://t.me/DmitryErmilov0" target="_blank" title="">
+                        <i class="fab fa-telegram-plane"></i>
                     </a>
-                    <a class="fa-icon fa-icon-2x" href="https://dribbble.com/" title="">
-                        <i class="fa fa-dribbble"></i>
+                    <a class="fa-icon fa-icon-2x" href="https://www.facebook.com/profile.php?id=100009127725551" target="_blank" title="">
+                        <i class="fab fa-facebook"></i>
                     </a>
-                    <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/" title="">
-                        <i class="fa fa-linkedin"></i>
+                    <a class="fa-icon fa-icon-2x" href="https://twitter.com/DmitryBackend" target="_blank" title="">
+                        <i class="fab fa-twitter"></i>
                     </a>
-                    <a class="fa-icon fa-icon-2x" href="https://vimeo.com/" title="">
-                        <i class="fa fa-vimeo"></i>
+                    <a class="fa-icon fa-icon-2x" href="https://ekaterinburg.hh.ru/resume/d59e167dff09514e270039ed1f494e43317878" title="Резюме" target="_blank">
+                        <i class="fas fa-file"></i>
                     </a>
                 </p>
             </div>
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <?php foreach ($productList as $product) : ?>
-                        <a href="/products/<?= $product['id'] ?>" style="color: black;">
+                        <a href="/about/<?= $product['id'] ?>" style="color: black;">
                             <div class="card">
                                 <div class="card-block">
                                     <h2><?= $product['title'] ?></h2>
@@ -135,24 +135,24 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="education-experience">
-                                        <small class="date">2017-2015</small>
-                                        <h3 class="h5 date-title">Design Master</h3>
-                                        <p>Chicago University</p>
+                                        <small class="date">2021-2022</small>
+                                        <h3 class="h5 date-title">Web developer</h3>
+                                        <p>Hindus from YouTube</p>
                                     </div>
 
                                 </div>
                                 <div class="col-md-4">
                                     <div class="education-experience">
-                                        <small class="date">2015-2012</small>
-                                        <h3 class="h5 date-title">Metrics Degree</h3>
-                                        <p>Ecole 87</p>
+                                        <small class="date">2018-2022</small>
+                                        <h3 class="h5 date-title">System Administrator</h3>
+                                        <p>Уральский железнодорожный техникум</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="education-experience">
-                                        <small class="date">2012-2011</small>
-                                        <h3 class="h5 date-title">Motion Design Course</h3>
-                                        <p>Pascal’s Lee Studio</p>
+                                        <small class="date">2014-2021</small>
+                                        <h3 class="h5 date-title">Video editing</h3>
+                                        <p>Adobe premier pro</p>
                                     </div>
                                 </div>
                             </div>
@@ -165,17 +165,13 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="language-experience">
-                                        <h3 class="h5">English <small>Bilingual</small></h3>
+                                        <h3 class="h5">English <small>Intermediate</small></h3>
                                     </div>
                                 </div>
+
                                 <div class="col-md-4">
                                     <div class="language-experience">
-                                        <h3 class="h5">French <small>Fluent</small></h3>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="language-experience">
-                                        <h3 class="h5">Russian <small>Beginner</small></h3>
+                                        <h3 class="h5">Russian <small>Native</small></h3>
                                     </div>
                                 </div>
                             </div>
@@ -194,14 +190,14 @@
                                         <img src="./assets/images/img-05.jpg" class="img-responsive" alt="...">
                                         <div class="carousel-caption">
                                             <h3 class="h5">Jules for Bastion</h3>
-                                            <p>2017</p>
+                                            <p>2021</p>
                                         </div>
                                     </div>
                                     <div class="item">
                                         <img src="./assets/images/img-06.jpg" class="img-responsive" alt="...">
                                         <div class="carousel-caption">
                                             <h3 class="h5">Jules for Bastion</h3>
-                                            <p>2017</p>
+                                            <p>2021</p>
                                         </div>
                                     </div>
 
@@ -209,7 +205,7 @@
                                         <img src="./assets/images/img-08.jpg" class="img-responsive" alt="...">
                                         <div class="carousel-caption">
                                             <h3 class="h5">Jules for Bastion</h3>
-                                            <p>2017</p>
+                                            <p>2021</p>
                                         </div>
                                     </div>
                                 </div>
@@ -230,13 +226,16 @@
                             <h2>Social Network</h2>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <p class="social-buttons"><a href="https://twitter.com/" title=""><span class="social-round-icon fa-icon"><i class="fa fa-twitter"></i></span>@David_Folley</a></p>
+                                    <p class="social-buttons"><a href="https://twitter.com/DmitryBackend" target="_blank" title=""><span class="social-round-icon fa-icon"><i class="fa fa-twitter"></i></span>@DmitryBackend
+                                        </a></p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p class="social-buttons"><a href="https://www.linkedin.com/" title=""><span class="social-round-icon fa-icon"><i class="fa fa-linkedin"></i></span>David Folley</a></p>
+                                    <p class="social-buttons"><a href="https://www.facebook.com/profile.php?id=100009127725551" target="_blank" title=""><span class="social-round-icon fa-icon"> <i class="fab fa-facebook"></i>
+                                            </span>Dima Ermilov</a></p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p class="social-buttons"><a href="https://dribbble.com/" title=""><span class="social-round-icon fa-icon"><i class="fa fa-dribbble"></i></span>David Folley</a></p>
+                                    <p class="social-buttons"><a href="https://t.me/DmitryErmilov0" target="_blank" title=""><span class="social-round-icon fa-icon"> <i class="fab fa-telegram-plane"></i>
+                                            </span>@DmitryErmilov</a></p>
                                 </div>
                             </div>
                         </div>
@@ -273,22 +272,22 @@
                 <div class="col-xs-12">
                     <p><img src="./assets/images/mashup-icon.svg" alt=""></p>
 
-                    <p>©All right reserved. Design <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
+                    <p>©All right reserved. Design this project is not commercial</p>
                     <p>
-                        <a class="fa-icon fa-icon-2x" href="https://facebook.com/" title="">
-                            <i class="fa fa-facebook"></i>
+                        <a class="fa-icon fa-icon-2x" href="https://vk.com/id554796471" title="" target="_blank">
+                            <i class="fa fa-vk"></i>
                         </a>
-                        <a class="fa-icon fa-icon-2x" href="https://twitter.com/" title="">
-                            <i class="fa fa-twitter"></i>
+                        <a class="fa-icon fa-icon-2x" href="https://t.me/DmitryErmilov0" target="_blank" title="">
+                            <i class="fab fa-telegram-plane"></i>
                         </a>
-                        <a class="fa-icon fa-icon-2x" href="https://dribbble.com/" title="">
-                            <i class="fa fa-dribbble"></i>
+                        <a class="fa-icon fa-icon-2x" href="https://www.facebook.com/profile.php?id=100009127725551" target="_blank" title="">
+                            <i class="fab fa-facebook"></i>
                         </a>
-                        <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/" title="">
-                            <i class="fa fa-linkedin"></i>
+                        <a class="fa-icon fa-icon-2x" href="https://twitter.com/DmitryBackend" target="_blank" title="">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="fa-icon fa-icon-2x" href="https://vimeo.com/" title="">
-                            <i class="fa fa-vimeo"></i>
+                        <a class="fa-icon fa-icon-2x" href="https://ekaterinburg.hh.ru/resume/d59e167dff09514e270039ed1f494e43317878" title="Резюме" target="_blank">
+                            <i class="fas fa-file"></i>
                         </a>
                     </p>
                 </div>

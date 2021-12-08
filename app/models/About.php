@@ -1,5 +1,5 @@
 <?php
-class Products
+class About
 {
     public static function getProducts()
     {
