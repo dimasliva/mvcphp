@@ -7,12 +7,11 @@
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <meta content="description" name="description">
     <meta name="google" content="notranslate" />
-    <meta content="Mashup templates have been developped by Orson.io team" name="author">
+    <meta content="Dima Ermilov resume" name="Dmitry">
 
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-icon-180x180.png">
     <link href="./assets/favicon.ico" rel="icon">
 
     <title>Title page</title>
@@ -56,27 +55,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <?php foreach ($productList as $product) : ?>
-                        <a href="/about/<?= $product['id'] ?>" style="color: black;">
-                            <div class="card">
-                                <div class="card-block">
-                                    <h2><?= $product['title'] ?></h2>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p><img src="/app/template/images/<?= $product['image'] ?>.jpg" class="img-responsive" alt=""></p>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <p>
-                                                <?= $product['short_content'] ?>
-                                            </p>
+                    <div class="card">
+                        <div class="card-block">
+                            <h2>About me</h2>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <p><img src="./public/images/humster.jpg" class="img-responsive" alt=""></p>
+                                </div>
+                                <div class="col-md-8">
+                                    <p>
+                                        I have been doing web development since late 2020 - early 2021. Studied such programming languages as javascript, php, Java and other layout and styling languages. Preferred position as backend developer. If you are interested, then fill out the form at the bottom of the site or write to me in a telegram.
+                                    </p>
 
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                        </a>
+                        </div>
+                    </div>
 
-                    <?php endforeach; ?>
 
                     <div class="card">
                         <div class="card-block">
@@ -111,19 +106,14 @@
                         <div class="card-block">
                             <h2>Work</h2>
                             <div class="work-experience">
-                                <small class="date">2017-2015</small>
-                                <h3 class="h5 date-title">Web developer - <a href="http://en.orson.io" title="Create professionnal website">Orson.io</a></h3>
+                                <small class="date">2021-2021</small>
+                                <h3 class="h5 date-title">Internship - <a href="https://luckru.ru/" title="Create professionnal website">Luckru</a></h3>
 
 
-                                <p>Leo vel orci porta non pulvinar neque laoreet suspendisse interdum. Vitae ultricies leo integer malesuada nunc. Imperdiet proin fermentum leo vel orci porta non pulvinar neque. Fermentum leo vel orci porta non. Posuere sollicitudin aliquam ultrices sagittis. Aliquam faucibus purus in massa tempor nec.</p>
+                                <p>Passed an internship for 2 weeks and studied working with the Bitrix CRM system.</p>
                             </div>
 
-                            <div class="work-experience">
-                                <small class="date">2017-2015</small>
-                                <h3 class="h5 date-title">Web developer - <a href="http://mashup-template.com" title="">Mashup Template</a></h3>
 
-                                <p>Fermentum leo vel orci porta non. Posuere sollicitudin aliquam ultrices sagittis. Aliquam faucibus purus in massa tempor nec.</p>
-                            </div>
                         </div>
                     </div>
 
@@ -187,24 +177,24 @@
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner" role="listbox">
                                     <div class="item active">
-                                        <img src="./assets/images/img-05.jpg" class="img-responsive" alt="...">
+                                        <img src="./public/images/projectOne.png" class="img-responsive" alt="...">
                                         <div class="carousel-caption">
-                                            <h3 class="h5">Jules for Bastion</h3>
+                                            <h3 class="h5">DungeonMine</h3>
                                             <p>2021</p>
                                         </div>
                                     </div>
                                     <div class="item">
-                                        <img src="./assets/images/img-06.jpg" class="img-responsive" alt="...">
+                                        <img src="./public/images/projectTwo.png" class="img-responsive" alt="...">
                                         <div class="carousel-caption">
-                                            <h3 class="h5">Jules for Bastion</h3>
+                                            <h3 class="h5">MVC</h3>
                                             <p>2021</p>
                                         </div>
                                     </div>
 
                                     <div class="item">
-                                        <img src="./assets/images/img-08.jpg" class="img-responsive" alt="...">
+                                        <img src="./public/images/projectThird.png" class="img-responsive" alt="...">
                                         <div class="carousel-caption">
-                                            <h3 class="h5">Jules for Bastion</h3>
+                                            <h3 class="h5">Telephone Book</h3>
                                             <p>2021</p>
                                         </div>
                                     </div>
@@ -226,16 +216,29 @@
                             <h2>Social Network</h2>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <p class="social-buttons"><a href="https://twitter.com/DmitryBackend" target="_blank" title=""><span class="social-round-icon fa-icon"><i class="fa fa-twitter"></i></span>@DmitryBackend
-                                        </a></p>
+                                    <p class="social-buttons">
+                                        <a href="https://twitter.com/DmitryBackend" target="_blank" title="">
+                                            <span class="social-round-icon" style="padding: 5px;"><i class="fa fa-twitter"></i></span>
+                                            @DmitryBackend
+                                        </a>
+                                    </p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p class="social-buttons"><a href="https://www.facebook.com/profile.php?id=100009127725551" target="_blank" title=""><span class="social-round-icon fa-icon"> <i class="fab fa-facebook"></i>
-                                            </span>Dima Ermilov</a></p>
+                                    <p class="social-buttons"><a href="https://www.facebook.com/profile.php?id=100009127725551" target="_blank" title="">
+                                            <span class="social-round-icon" style="padding:5px 2px 5px 5px;">
+                                                <i class="fab fa-facebook"></i>
+                                            </span>
+                                            Dima Ermilov
+                                        </a>
+                                    </p>
                                 </div>
                                 <div class="col-md-3">
-                                    <p class="social-buttons"><a href="https://t.me/DmitryErmilov0" target="_blank" title=""><span class="social-round-icon fa-icon"> <i class="fab fa-telegram-plane"></i>
-                                            </span>@DmitryErmilov</a></p>
+                                    <p class="social-buttons"><a href="https://t.me/DmitryErmilov0" target="_blank" title="">
+                                            <span class="social-round-icon" style="padding:5px 2px 5px 5px;">
+                                                <i class="fab fa-telegram-plane"></i>
+                                            </span>@DmitryErmilov
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +247,7 @@
                     <div class="card">
                         <div class="card-block">
                             <h2>Contact</h2>
-                            <form action="" class="reveal-content">
+                            <form class="reveal-content" id="myForm" method="POST">
                                 <div class="form-group">
                                     <input type="email" class="form-control" id="email" placeholder="Email">
                                 </div>
@@ -252,10 +255,10 @@
                                     <input type="text" class="form-control" id="subject" placeholder="Subject">
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                                    <textarea class="form-control" id="body" rows="5" placeholder="Enter your message"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class=" btn btn-primary">Send message</button>
+                                    <button type="submit" onclick="sendEmail()" value="Send an Email" class="btn btn-primary">Send message</button>
                                 </div>
                             </form>
                         </div>
@@ -294,26 +297,24 @@
             </div>
         </div>
     </footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
             scrollRevelation('.card');
         });
+
+
+        function sendEmail() {
+            const email = $("#email");
+            const subject = $("#subject");
+            const body = $("#body");
+
+            if (!empty(email) && !empty(subject) && !empty(body)) {
+                $.ajax({})
+            }
+        }
     </script>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
 
-<script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-  ga('create', 'UA-XXXXX-X', 'auto');
-  ga('send', 'pageview');
-</script>
-
--->
     <script type="text/javascript" src="/public/js/main.bc58148c.js"></script>
 </body>
 

@@ -5,14 +5,8 @@ class AboutController
     public function actionList()
     {
         $productList = array();
-        $productList = About::getProducts();
+        $productList = About::sendEmail();
         require_once ROOT . '/public/views/about/index.php';
-        return true;
-    }
-    public function actionView($id)
-    {
-        $product = About::getProductById($id);
-        require_once ROOT . '/public/views/about/view.php';
         return true;
     }
 }

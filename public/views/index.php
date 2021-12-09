@@ -42,13 +42,13 @@ https://www.tooplate.com/view/2115-marvel
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a href="/news" class="nav-link"><span data-hover="About">News</span></a>
+                        <a href="/news" class="nav-link"><span data-hover="News">News</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="/products" class="nav-link"><span data-hover="Projects">Products</span></a>
+                        <a href="/about" class="nav-link"><span data-hover="Me">About</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="/upload/1" class="nav-link"><span data-hover="Resume">Upload</span></a>
+                        <a href="/upload/1" class="nav-link"><span data-hover="Upload">Upload</span></a>
                     </li>
                     <li class="nav-item">
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>

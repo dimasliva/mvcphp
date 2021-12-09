@@ -1,37 +1,44 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+
 class About
 {
-    public static function getProducts()
+    public static function sendEmail()
     {
-        $db = Db::getConnection();
-        $result = $db->query('SELECT * from news');
-        $result->execute();
-        $productList = array();
-        $i = 1;
-        while ($row = $result->fetch()) {
-            $productList[$i]['id'] = $row['id'];
-            $productList[$i]['title'] = $row['title'];
-            $productList[$i]['date'] = $row['date'];
-            $productList[$i]['short_content'] = $row['short_content'];
-            $productList[$i]['image'] = $row['image'];
-            $i++;
-        }
-        return $productList;
-    }
+        if (isset($_POST['email']) && isset($_POST['subject'])) {
+            $email = $_POST['email'];
+            $subject = $_POST['subject'];
+            $body = $_POST['body'];
 
-    public static function getProductById($id)
-    {
-        $id = intval($id);
-        if ($id) {
+            require_once "PHPMailer\PHPMailer";
+            require_once "PHPMailer\SMTP";
+            require_once "PHPMailer\Exception";
 
-            $db = Db::getConnection();
+            $mail = new PHPMailer();
 
-            $result = $db->query("SELECT * from news WHERE id=$id");
+            $mail->isSMTP();
+            $mail->Host = "smtp.gmail.com";
+            $mail->SMTPAuth = true;
+            $mail->Username = 'gamerrussianchannel@gmail.com';
+            $mail->Password = 'Balalaykin228';
+            $mail->Port = 465;
+            $mail->SMTPSecure = 'ssl';
 
-            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $mail->isHTML(true);
+            $mail->setFrom($email, $email);
+            $mail->addAddress('gamerrussianchannel@gmail.com');
+            $mail->Subject = $subject;
+            $mail->Body = $body;
 
-            $product = $result->fetch();
-            return $product;
+            if ($mail->send()) {
+                $status = 'Success';
+                $response = "Email is sent";
+            } else {
+                $status = 'Failed';
+                $response = "Something is wrong: " . $mail->ErrorInfo;
+            }
+            exit(json_encode(array("status" => $status, "response" => $response)));
         }
     }
 }
