@@ -1,0 +1,17 @@
+{
+    "name": "a/a",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dimasliva",
+            "email": "janzerikYT@yandex.ru"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}

@@ -1,4 +1,7 @@
 <?php
+
+namespace app\components;
+
 class Router
 {
     private $routes;

@@ -4,6 +4,7 @@ class HomeController
 {
     public function actionIndex()
     {
+        Mailer::sendMail();
         require_once(ROOT . '/public/views/index.php');
 
         return true;

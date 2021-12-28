@@ -1,7 +1,7 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
-
+use app\components;
 class About
 {
     public static function sendEmail()

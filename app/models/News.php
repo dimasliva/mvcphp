@@ -1,4 +1,5 @@
 <?php
+use app\components;
 class News
 {
     public static function getNews()
