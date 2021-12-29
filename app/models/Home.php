@@ -6,11 +6,10 @@ class Mailer
 {
     static function sendMail()
     {
-        session_start();
-        if (!empty($_POST['email']) && !empty($_POST['name']) && !empty($_POST['message'])) {
-            $email = $_POST['email'];
-            $name = $_POST['name'];
-            $message = $_POST['message'];
+        if (isset($_POST['submit'])) {
+            $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+            $name = htmlspecialchars($_POST['name']);
+            $message = htmlspecialchars($_POST['message']);
             $mail = new PHPMailer();
 
             // SMTP settings
@@ -31,14 +30,6 @@ class Mailer
             $mail->Body = $message . "\n Имя: " . $name . "\n Почта: " . $email;
 
             if ($mail->send()) {
-                $message = '<div class="alert alert-success alert-dismissible fade show" id="alert" role="alert">
-                <strong>Success!</strong> Message has been send.
-                <button type="button" id="close" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>';
-                $_SESSION['message'] = $message;
-                echo $_SESSION['message'];
             } else {
                 $status = 'Failed';
                 $response = 'Something is wrong!: <br>' . $mail->ErrorInfo;

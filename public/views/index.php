@@ -14,25 +14,11 @@
     <link rel="stylesheet" href="/public/css/carousel/owl.carousel.min.css">
     <script src="/public/js/jquery.js" data-cover></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        jQuery(function($) {
 
-            $(document).ready(function() {
-                $(".owl-carousel").owlCarousel();
-            });
-
-        });
     </script>
     <!-- MAIN STYLE -->
     <link rel="stylesheet" href="/public/css/home/tooplate-style.css">
 
-    <!--
-
-Tooplate 2115 Marvel
-
-https://www.tooplate.com/view/2115-marvel
-
--->
 </head>
 
 <body>
@@ -75,10 +61,14 @@ https://www.tooplate.com/view/2115-marvel
             </div>
         </div>
     </nav>
-    <!-- ABOUT -->
-    <div class="sent-notification">
-        <p class="sent-notification-p"></p>
+    <!-- Alert -->
+    <div class="alert alert-success alert-dismissible fade show" id="alertSuccess" role="alert">
+        <strong>Success!</strong> Message has been sent.
+        <button type="button" class="close" id='close' data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
+    <!-- ABOUT -->
     <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
         <div class="container">
             <div class="row">
@@ -98,7 +88,7 @@ https://www.tooplate.com/view/2115-marvel
                         <p>Building a successful product is a challenge. I am engaged in frontend and backend web development.</p>
 
                         <div class="custom-btn-group mt-4">
-                            <a href="/" class="btn mr-lg-2 custom-btn"><i class="fas fa-briefcase"></i> Download Resume</a>
+                            <a href="https://ekaterinburg.hh.ru/resume/f6e8c688ff090ee61b0039ed1f534137733865" target="_blank" class="btn mr-lg-2 custom-btn"><i class="fas fa-briefcase"></i> Download Resume</a>
                             <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>
                         </div>
                     </div>
@@ -291,7 +281,7 @@ https://www.tooplate.com/view/2115-marvel
                                 </div>
 
                                 <div class="ml-lg-auto col-lg-5 col-12">
-                                    <input type="submit" id="btnSubmit" class="form-control submit-btn" value="Send Button">
+                                    <input type="submit" id="btnSubmit" name="submit" class="form-control submit-btn" value="Send Button">
                                 </div>
                             </div>
                         </form>
@@ -314,36 +304,7 @@ https://www.tooplate.com/view/2115-marvel
             </div>
         </div>
     </footer>
-
-    <script>
-        const alertSuccess = document.getElementById('alertSuccess').style.visibility = 'hidden';
-        // Submit button
-        const submitBtn = document.getElementById('btnSubmit');
-        submitBtn.style.backgroundColor = "#474559";
-        submitBtn.style.cursor = 'default';
-        submitBtn.disabled = true
-        // Form
-        const form = document.getElementById('myForm');
-
-        form.addEventListener("keyup", (e) => {
-            if (form.elements['name'].value !== '' && form.elements['message'].value !== '' && form.elements['email'].value !== '') {
-                submitBtn.style.backgroundColor = null;
-                submitBtn.style.cursor = 'pointer';
-                submitBtn.disabled = false
-            }
-        })
-
-        submitBtn.onclick = () => {
-            sessionStorage.setItem("lastname", "Smith");
-            sessionStorage.getItem("lastname");
-        }
-        // Close alert (btn)
-        const btnClose = document.getElementById('close').onclick = function() {
-            const message = document.getElementById('alert');
-            message.remove(message);
-            console.log('hi')
-        };
-    </script>
+    <script src="/public/js/Home.js"></script>
 </body>
 
 </html>
